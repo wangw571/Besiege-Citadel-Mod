@@ -88,13 +88,13 @@ A mod that adds Various Structures for challenging. Structures were from EVE Onl
 		 The path attribute is relative to the location of this file. -->
 	<Blocks>
 		<!-- <Block path="SomeBlock.xml" /> -->
+		<Block path="Keepstar.xml" />
 	</Blocks>
 	
 	<!-- Any entities (level objects) your mod adds to the game.
 		 The path attribute is relative to the location of this file. -->
 	<Entities>
 		<!-- <Entity path="SomeEntity.xml" /> -->
-		<Entity path="Keepstar.xml" />
 	</Entities>
 	
 	<!-- Any logic trigger types your mod adds to the game. -->
@@ -120,8 +120,11 @@ A mod that adds Various Structures for challenging. Structures were from EVE Onl
 		 You also need to list resources used in your Blocks and Entities.
 		 Available resource types are Mesh, Texture, AudioClip, and AssetBundle. -->
 	<Resources>
-		<!-- <Mesh name="some-mesh-name" path="some_mesh_file.obj" /> -->
-		<!-- <Texture name="some-texture-name" path="some_texture_file.png" /> -->
+		<Mesh name="KeepstarMesh" path="KeepstarM.obj" />
+		<Texture name="1" path="1.png" />
+		<Texture name="2" path="2.png" />
+		<Texture name="3" path="3.png" />
+		<Texture name="4" path="4.png" />
 	</Resources>
 
 

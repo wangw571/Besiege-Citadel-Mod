@@ -8,8 +8,26 @@ using System.Text;
 
 namespace CitadelMod
 {
-    public abstract class GenericCitadel : LevelEntity
+    public abstract class GenericCitadel : ModBlockBehaviour
     {
+
+        public MSlider MSSeed;
+        public MMenu MMTab;
+
+        public MToggle MTDeploy;
+        public MToggle MTConfirmDeploy;
+
+        public MMenu MMContracts;
+
+
+        public override void OnPrefabCreation()
+        {
+            MMContracts = AddMenu("MMContracts", 0, new List<string> { "AI - MFLOPS - ⚀", "AI - GFLOPS - ⚁", "AI - TFLOPS - ⚂" }  );
+            base.OnPrefabCreation();
+        }
+
+        
+
         public void Targeting()
         {
             throw new NotImplementedException();

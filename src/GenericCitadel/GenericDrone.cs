@@ -8,8 +8,11 @@ using System.Text;
 
 namespace CitadelMod
 {
-    public abstract class GenericDrone: MonoBehaviour
+    public abstract class GenericDroneLauncher: ModBlockBehaviour
     {
+        public MSlider MSSeed;
+        public MMenu MMTab;
+
         public abstract void Operation();
 
         public abstract void UponDestoryed();

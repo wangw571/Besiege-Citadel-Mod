@@ -49,6 +49,7 @@
     <Compile Include="GenericCitadel.cs" />
     <Compile Include="GenericDevice.cs" />
     <Compile Include="GenericDrone.cs" />
+    <Compile Include="Generic_Combat_Citadel.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
