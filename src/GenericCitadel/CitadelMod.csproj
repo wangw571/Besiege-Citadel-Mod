@@ -46,10 +46,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenericCitadel.cs" />
-    <Compile Include="GenericDevice.cs" />
-    <Compile Include="GenericDrone.cs" />
-    <Compile Include="Generic_Combat_Citadel.cs" />
+    <Compile Include="EntityScript\AnimateEvent.cs" />
+    <Compile Include="EntityScript\DeviceScript\StasisWebifierApplier.cs" />
+    <Compile Include="EntityScript\GenericCitadel.cs" />
+    <Compile Include="EntityScript\GenericColliderScript.cs" />
+    <Compile Include="EntityScript\DeviceScript\GenericModule.cs" />
+    <Compile Include="EntityScript\Generic_Combat_Citadel.cs" />
+    <Compile Include="EntityScript\Keepstar.cs" />
+    <Compile Include="ModdedBlockScript\MBS_GenericCitadel.cs" />
+    <Compile Include="ModdedBlockScript\MBS_GenericModule.cs" />
+    <Compile Include="ModdedBlockScript\MBS_GenericDroneLauncher.cs" />
+    <Compile Include="ModdedBlockScript\MBS_Generic_Combat_Citadel.cs" />
+    <Compile Include="ModdedBlockScript\MBS_Generic_Engineering_Complex.cs" />
+    <Compile Include="ModdedBlockScript\MBS_Keepstar.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

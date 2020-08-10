@@ -1,0 +1,47 @@
+# Blender MTL File: 'None'
+# Material Count: 3
+
+newmtl shape0
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd H:\aha\citadel\c1_t1_ar.tga
+map_Ka H:\\aha\\citadel\\c1_t1_ar.tga
+map_Ks H:\\aha\\citadel\\c1_t1_ar.tga
+map_Ns H:\\aha\\citadel\\c1_t1_ar.tga
+map_Tr H:\\aha\\citadel\\c1_t1_ar.tga
+map_d H:\\aha\\citadel\\c1_t1_ar.tga
+
+newmtl shape1
+Ns 350.980392
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.400000 0.400000 0.400000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd H:\aha\citadel\c1_t1_2_ar.tga
+map_Tr H:\\aha\\citadel\\c1_t1_2_ar.tga
+map_d H:\\aha\\citadel\\c1_t1_2_ar.tga
+
+newmtl shape2
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd H:\aha\citadel\c1_t1_detail2.tga
+map_Ke H:\\aha\\citadel\\c1_t1_detail2.tga
+map_Ks H:\\aha\\citadel\\c1_t1_detail2.tga
+map_Ns H:\\aha\\citadel\\c1_t1_detail2.tga
+map_Tr H:\\aha\\citadel\\c1_t1_detail2.tga
+map_d H:\\aha\\citadel\\c1_t1_detail2.tga
