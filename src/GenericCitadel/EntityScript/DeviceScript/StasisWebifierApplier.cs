@@ -23,9 +23,10 @@ namespace CitadelMod.EntityScript.DeviceScript
             {
                 timeForCD = 1200;
                 GameObject WebBall = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                WebBall.transform.position = target.transform.position + target.GetComponent<Rigidbody>().velocity;
+                WebBall.transform.position = this.transform.position;
                 WebBall.GetComponent<Collider>().isTrigger = true;
-                WebBall.AddComponent<StasisWebifierBall>();
+                StasisWebifierBall swb = WebBall.AddComponent<StasisWebifierBall>();
+                swb.targetPosition = target.transform.position + target.GetComponent<Rigidbody>().velocity;
             }
         }
         public override bool CheckIfAttackable(Vector3 worldPosition)
@@ -36,6 +37,7 @@ namespace CitadelMod.EntityScript.DeviceScript
 
     public class StasisWebifierBall : MonoBehaviour
     {
+        public Vector3 targetPosition = Vector3.zero;
         private float timeLeft = 120;
         Renderer thisRenderer;
         void Start()
@@ -48,6 +50,7 @@ namespace CitadelMod.EntityScript.DeviceScript
         void FixedUpdate()
         {
             timeLeft -= 1;
+            this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, 0.3f);
             this.transform.localScale = Vector3.Lerp(this.transform.localScale, Vector3.one * 15, 0.08f);
             thisRenderer.material.color = Color.Lerp(thisRenderer.material.color, new Color(0, 0, 0, 0), 0.07f);
             if (timeLeft <= 0) { Destroy(this.gameObject); }
@@ -113,9 +116,9 @@ namespace CitadelMod.EntityScript.DeviceScript
             }
             else if (timeLeft < 100 && timeLeft > 5)
             {
-                attachedRigidbody.maxAngularVelocity = Mathf.Lerp(attachedRigidbody.maxAngularVelocity, originalMaxAngVelo, 0.05f);
-                attachedRigidbody.drag = Mathf.Lerp(attachedRigidbody.drag, originalDrag, 0.05f);
-                attachedRigidbody.mass = Mathf.Lerp(attachedRigidbody.mass, originalMass, 0.05f);
+                attachedRigidbody.maxAngularVelocity = Mathf.Lerp(attachedRigidbody.maxAngularVelocity, originalMaxAngVelo, 0.35f);
+                attachedRigidbody.drag = Mathf.Lerp(attachedRigidbody.drag, originalDrag, 0.35f);
+                attachedRigidbody.mass = Mathf.Lerp(attachedRigidbody.mass, originalMass, 0.35f);
             }
             else
             {

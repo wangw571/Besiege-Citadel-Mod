@@ -12,43 +12,45 @@ namespace CitadelMod.EntityScript
 {
     public abstract class GenericCombatCitadel : GenericCitadel
     {
-        protected bool useWebifier = false;
+        protected bool useWebifier = true;
+        protected int BombNum = 3;
+
+
         protected StasisWebifierApplier webDevice;
-        protected int BombNum = 0;
-        public override void deploySelf(Vector3 scale, Vector3 position, Quaternion rotation, Dictionary<string, Contract> existingContract)
+        protected BombProjector bombProjector;
+        public override void deploySelf(Vector3 scale, Vector3 position, Quaternion rotation, Dictionary<string, MToggle> SelectedContracts)
         {
-            base.deploySelf(scale, position, rotation, existingContract);
-            foreach (string key in existingContract.Keys) // Really horrible design, will refactor soon™
+            base.deploySelf(scale, position, rotation, SelectedContracts);
+            BesiegeConsoleController.ShowMessage(SelectedContracts.Values.Count.ToString());
+            foreach (MToggle value in SelectedContracts.Values) // Really horrible design, will refactor soon™
             {
-                if (key.Contains("Stasis Webifier"))
-                {
-                    useWebifier = true;
-                }
+                string key = value.DisplayName;
+                BesiegeConsoleController.ShowMessage(key);
                 if (key.Contains("100mm"))
                 {
                     HPMultiplier = 1.2f;
                 }
-                if (key.Contains("800mm"))
+                else if (key.Contains("800mm"))
                 {
                     HPMultiplier = 1.6f;
                 }
-                if (key.Contains("25000mm"))
+                else if(key.Contains("25000mm"))
                 {
                     HPMultiplier = 3f;
                 }
-                if(key.Contains("Void Bomb "))
+                else if(key.Contains("Void Bomb "))
                 {
                     BombNum = 1;
                 }
-                if (key.Contains("3 * Void Bombs "))
+                else if(key.Contains("3 * Void Bombs "))
                 {
                     BombNum = 3;
                 }
-                if (key.Contains("Rapid"))
+                else if(key.Contains("Rapid"))
                 {
                     BombNum = 5;
                 }
-                if (key.Contains("Stasis"))
+                else if(key.Contains("Stasis"))
                 {
                     useWebifier = true;
                 }
@@ -56,6 +58,11 @@ namespace CitadelMod.EntityScript
             if (useWebifier)
             {
                 webDevice = this.gameObject.AddComponent<StasisWebifierApplier>();
+            }
+            if(BombNum != 0)
+            {
+                bombProjector = this.gameObject.AddComponent<BombProjector>();
+                bombProjector.bombCount = BombNum;
             }
         }
         public override void FixedUpdate()
@@ -67,7 +74,11 @@ namespace CitadelMod.EntityScript
                     //BesiegeConsoleController.ShowMessage("Web Attempt");
                     webDevice.SetTarget(currentTarget);
                 }
-        }
+                if (BombNum != 0)
+                {
+                    bombProjector.SetTarget(currentTarget);
+                }
+            }
         }
     }
 }

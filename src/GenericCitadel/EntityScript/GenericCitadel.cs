@@ -13,7 +13,7 @@ namespace CitadelMod.EntityScript
     {
         public GameObject currentTarget;
 
-        public float HPMultiplier;
+        public float HPMultiplier = 1f;
         public float HP;
 
         public int TargetingRange;
@@ -29,7 +29,7 @@ namespace CitadelMod.EntityScript
         public Dictionary<string, Contract> ExistingContract = new Dictionary<string, Contract>();
 
 
-        public virtual void deploySelf(Vector3 scale, Vector3 position, Quaternion rotation, Dictionary<string, Contract> existingContract)
+        public virtual void deploySelf(Vector3 scale, Vector3 position, Quaternion rotation, Dictionary<string, MToggle> SelectedContracts)
         {
             this.transform.localScale = scale;
             this.transform.position = position;
@@ -38,7 +38,7 @@ namespace CitadelMod.EntityScript
             GenericColliderScript GCollS = this.transform.FindChild("MeshCollider").gameObject.AddComponent<GenericColliderScript>();
             GCollS.sourceCitadel = this;
 
-            foreach(string key in existingContract.Keys) // Really horrible design, will refactor soon™
+            foreach(MToggle value in SelectedContracts.Values) // Really horrible design, will refactor soon™
             {
                 
             }

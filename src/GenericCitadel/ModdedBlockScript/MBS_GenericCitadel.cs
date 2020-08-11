@@ -65,7 +65,7 @@ namespace CitadelMod
 
             if (MTAddContract.IsActive)
             {
-                AddNewContract();
+                SelectContract();
             }
 
             foreach (String existingContractTag in DictMTContracts.Keys)
@@ -83,7 +83,7 @@ namespace CitadelMod
 
         protected abstract void deploySelf();
 
-        private void AddNewContract()
+        private void SelectContract()
         {
             MTAddContract.SetValue(false);
             Contract CorrespondingContract = ExistingContract[MMContracts.Selection];

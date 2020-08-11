@@ -42,7 +42,7 @@ namespace CitadelMod
             KeepStarEntity.name = "KeepstarEntity";
 
             KeepstarScript ks = KeepStarEntity.AddComponent<KeepstarScript>();
-            ks.deploySelf(new Vector3(0.0005f, 0.0005f, 0.0005f), this.transform.position, this.transform.rotation, ExistingContract);
+            ks.deploySelf(new Vector3(0.0005f, 0.0005f, 0.0005f), this.transform.position, this.transform.rotation, DictMTContracts);
 
             this.transform.parent = null;
             Machine.RemoveBlock(Block.From(this));

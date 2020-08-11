@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityScript\AnimateEvent.cs" />
+    <Compile Include="EntityScript\DeviceScript\BombProjector.cs" />
     <Compile Include="EntityScript\DeviceScript\StasisWebifierApplier.cs" />
     <Compile Include="EntityScript\GenericCitadel.cs" />
     <Compile Include="EntityScript\GenericColliderScript.cs" />
