@@ -12,7 +12,13 @@ namespace CitadelMod
     //		// Called when the mod is loaded.
     //	}
     //}
-
+    public static class d
+    {
+        public static void l(System.Object anything)
+        {
+            BesiegeConsoleController.ShowMessage(anything.ToString());
+        }
+    }
     public enum ContractTypes
     {
         AI,

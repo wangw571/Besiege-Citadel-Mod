@@ -15,10 +15,6 @@ namespace CitadelMod.EntityScript.DeviceScript
         public override void Operation()
         {
             timeForCD -= 1;
-            //BesiegeConsoleController.ShowMessage((timeForCD <= 0).ToString());
-            //BesiegeConsoleController.ShowMessage((target != null).ToString());
-            //BesiegeConsoleController.ShowMessage((CheckIfAttackable(target.transform.position)).ToString());
-            //BesiegeConsoleController.ShowMessage("123");
             if (timeForCD <= 0 && target != null && CheckIfAttackable(target.transform.position))
             {
                 timeForCD = 1200;

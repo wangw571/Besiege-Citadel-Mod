@@ -10,7 +10,7 @@ namespace CitadelMod.EntityScript
 {
     public abstract class GenericModule:MonoBehaviour
     {
-
+        public GenericCitadel parentCitadel = null;
         public GameObject target = null;
 
         public abstract void Operation();

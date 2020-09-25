@@ -12,9 +12,7 @@ namespace CitadelMod.EntityScript
 {
     public abstract class GenericCombatCitadel : GenericCitadel
     {
-        protected bool useWebifier = true;
-        protected int BombNum = 3;
-
+        protected List<GenericModule> Modules = new List<GenericModule>();
 
         protected StasisWebifierApplier webDevice;
         protected BombProjector bombProjector;
@@ -31,7 +29,7 @@ namespace CitadelMod.EntityScript
                     HPMultiplier = 1.2f;
                 }
                 else if (key.Contains("800mm"))
-                {
+                {   
                     HPMultiplier = 1.6f;
                 }
                 else if(key.Contains("25000mm"))
@@ -40,43 +38,29 @@ namespace CitadelMod.EntityScript
                 }
                 else if(key.Contains("Void Bomb "))
                 {
-                    BombNum = 1;
+                    Modules.Add(this.gameObject.AddComponent<BombProjector>());
                 }
                 else if(key.Contains("3 * Void Bombs "))
                 {
-                    BombNum = 3;
+                    Modules.Add(this.gameObject.AddComponent<TriBombProjector>());
                 }
                 else if(key.Contains("Rapid"))
                 {
-                    BombNum = 5;
+                    Modules.Add(this.gameObject.AddComponent<RapidBombProjector>());
                 }
                 else if(key.Contains("Stasis"))
                 {
-                    useWebifier = true;
+                    Modules.Add(this.gameObject.AddComponent<StasisWebifierApplier>());
                 }
-            }
-            if (useWebifier)
-            {
-                webDevice = this.gameObject.AddComponent<StasisWebifierApplier>();
-            }
-            if(BombNum != 0)
-            {
-                bombProjector = this.gameObject.AddComponent<BombProjector>();
-                bombProjector.bombCount = BombNum;
             }
         }
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (currentTarget != null) { 
-                if (useWebifier)
+            if (currentTarget != null) {
+                foreach (GenericModule module in Modules)
                 {
-                    //BesiegeConsoleController.ShowMessage("Web Attempt");
-                    webDevice.SetTarget(currentTarget);
-                }
-                if (BombNum != 0)
-                {
-                    bombProjector.SetTarget(currentTarget);
+                    module.SetTarget(currentTarget);
                 }
             }
         }

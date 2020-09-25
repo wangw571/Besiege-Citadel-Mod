@@ -10,8 +10,8 @@ namespace CitadelMod.EntityScript
     {
         public override void deploySelf(Vector3 scale, Vector3 position, Quaternion rotation, Dictionary<string, MToggle> SelectedContracts)
         {
-            base.deploySelf(scale, position, rotation, DictMTContracts);
-            this.HP = 5000000 * HPMultiplier;
+            base.deploySelf(scale, position, rotation, SelectedContracts);
+            this.HP = 500000000 * HPMultiplier;
         }
         public override void FixedUpdate()
         {

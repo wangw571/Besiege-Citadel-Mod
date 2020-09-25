@@ -47,7 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityScript\AnimateEvent.cs" />
-    <Compile Include="EntityScript\DeviceScript\BombProjector.cs" />
+    <Compile Include="EntityScript\DeviceScript\ArmorPlates\ArmorPlate1600.cs" />
+    <Compile Include="EntityScript\DeviceScript\ArmorPlates\ArmorPlate800.cs" />
+    <Compile Include="EntityScript\DeviceScript\ArmorPlates\ArmorPlate400.cs" />
+    <Compile Include="EntityScript\DeviceScript\ArmorPlates\ArmorPlate.cs" />
+    <Compile Include="EntityScript\DeviceScript\BombProjectors\RapidBombProjector.cs" />
+    <Compile Include="EntityScript\DeviceScript\BombProjectors\TriBombProjector.cs" />
+    <Compile Include="EntityScript\DeviceScript\BombProjectors\BombProjector.cs" />
     <Compile Include="EntityScript\DeviceScript\StasisWebifierApplier.cs" />
     <Compile Include="EntityScript\GenericCitadel.cs" />
     <Compile Include="EntityScript\GenericColliderScript.cs" />
@@ -63,6 +69,7 @@
     <Compile Include="Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetPath)" "$(ProjectDir)..\..\CitadelMod\$(TargetFileName)"</PostBuildEvent>

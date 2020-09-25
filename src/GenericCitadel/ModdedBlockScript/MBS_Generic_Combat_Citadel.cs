@@ -16,9 +16,9 @@ namespace CitadelMod
         private const string ConflictTurret = "Turret";
         private const string ConflictTestBomb = "Bomb";
 
-        public Contract TenPlate = new Contract("100mm Steel Plates", Level.One, ContractTypes.Durability, ConflictArmor);
-        public Contract TwoPlate = new Contract("800mm Steel Plates", Level.Two, ContractTypes.Durability, ConflictArmor);
-        public Contract FivePlate = new Contract("25000mm Steel Plates", Level.Three, ContractTypes.Durability, ConflictArmor);
+        public Contract Plate400 = new Contract("400mm Steel Plates", Level.One, ContractTypes.Durability, ConflictArmor);
+        public Contract Plate800 = new Contract("800mm Steel Plates", Level.Two, ContractTypes.Durability, ConflictArmor);
+        public Contract Plate1600 = new Contract("1600mm Steel Plates", Level.Three, ContractTypes.Durability, ConflictArmor);
 
         //public Contract DamaConOne = new Contract("Damage Control I", Level.One, ContractTypes.Durability, ConflictDamaCon);
         //public Contract DamaConTwo = new Contract("Damage Control II", Level.Two, ContractTypes.Durability, ConflictDamaCon);
@@ -32,9 +32,9 @@ namespace CitadelMod
         //Contract BLaser = new Contract("Beam Laser Turrets", Level.One, ContractTypes.Weaponry, ConflictTurret);
         //Contract Artillery = new Contract("Artillery Turrets", Level.One, ContractTypes.Weaponry, ConflictTurret);
 
-        public Contract SingleBomb = new Contract("Void Bomb", Level.One, ContractTypes.Weaponry, ConflictTestBomb);
-        public Contract TripleBomb = new Contract("3 * Void Bombs", Level.Two, ContractTypes.Weaponry, ConflictTestBomb);
-        public Contract RapidBomb = new Contract("Rapid Void Bombs Deployment", Level.Three, ContractTypes.Weaponry, ConflictTestBomb);
+        public Contract SingleBomb = new Contract("Shrapnel Bomb", Level.One, ContractTypes.Weaponry, ConflictTestBomb);
+        public Contract TripleBomb = new Contract("3 × Shrapnel Bombs", Level.Two, ContractTypes.Weaponry, ConflictTestBomb);
+        public Contract RapidBomb = new Contract("Rapid Shrapnel Bombs Deployment", Level.Three, ContractTypes.Weaponry, ConflictTestBomb);
 
         //Contract Drone = new Contract("Drones", Level.One, ContractTypes.Weaponry);
 
@@ -48,9 +48,9 @@ namespace CitadelMod
         {
             base.SafeAwake();
 
-            AddNewContract(TenPlate); // + 10%
-            AddNewContract(TwoPlate); // + 100%
-            AddNewContract(FivePlate); // + 400%
+            AddNewContract(Plate400); // + 100%
+            AddNewContract(Plate800); // + 200%
+            AddNewContract(Plate1600); // + 400%
             //AddNewContract(DamaConOne); // Module Damage -50%
             //AddNewContract(DamaConTwo); // Module Damage -80%
 

@@ -23,7 +23,7 @@ namespace CitadelMod
 
         public override void OnPrefabCreation()
         {
-            GameObject ActualCollider = new GameObject("RealCollider");
+            GameObject ActualCollider = new GameObject("ActualCollider");
             ActualCollider.transform.SetParent(transform.FindChild("Colliders"));
             MeshCollider colliderMesh = ActualCollider.AddComponent<MeshCollider>();
             MeshFilter colliderMeshF = ActualCollider.AddComponent<MeshFilter>();

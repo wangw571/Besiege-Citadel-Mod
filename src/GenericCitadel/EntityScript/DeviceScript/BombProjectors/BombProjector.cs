@@ -12,47 +12,18 @@ namespace CitadelMod.EntityScript.DeviceScript
 {
     public class BombProjector : GenericModule
     {
-        public int bombCount = 0;
         private int timeForCD = 0;
         public override void Operation()
         {
             timeForCD -= 1;
-            //BesiegeConsoleController.ShowMessage((timeForCD <= 0).ToString());
-            //BesiegeConsoleController.ShowMessage((target != null).ToString());
-            //BesiegeConsoleController.ShowMessage((CheckIfAttackable(target.transform.position)).ToString());
-            //BesiegeConsoleController.ShowMessage("123");
             if (timeForCD <= 0 && target != null && CheckIfAttackable(target.transform.position))
             {
-                if (bombCount == 1)
-                {
                     timeForCD = 400;
                     GameObject BombballOne = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     BombballOne.transform.position = this.transform.position;
                     BombBall BBOne = BombballOne.AddComponent<BombBall>();
                     BBOne.targetPosition = target.transform.position + target.GetComponent<Rigidbody>().velocity;
-                }
-                else if (bombCount == 3)
-                {
-                    System.Random randomGen = new System.Random((int)Time.fixedDeltaTime);
-                    timeForCD = 400;
-                    for (int i = 0; i <= 3; ++i)
-                    {
-                        GameObject Bombball = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                        Bombball.name = i.ToString();
-                        Bombball.transform.position = this.transform.position;
-                        BombBall BBB = Bombball.AddComponent<BombBall>();
-                        BBB.targetPosition = target.transform.position + target.GetComponent<Rigidbody>().velocity;
-                        BBB.targetPosition += new Vector3((2.5f - (float)randomGen.Next(0, 5)), (2.5f - (float)randomGen.Next(0, 5)), (2.5f - (float)randomGen.Next(0, 5))) * 3;
-                    }
-                }
-                else if (bombCount == 5)
-                {
-                    timeForCD = 100;
-                    GameObject BombballRapid = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    BombballRapid.transform.position = this.transform.position;
-                    BombBall BBR = BombballRapid.AddComponent<BombBall>();
-                    BBR.targetPosition = target.transform.position + target.GetComponent<Rigidbody>().velocity;
-                }
+                
             }
         }
         public override bool CheckIfAttackable(Vector3 worldPosition)
@@ -112,6 +83,12 @@ namespace CitadelMod.EntityScript.DeviceScript
                 joint.breakTorque = joint.breakTorque > 55000 ? 55000 : joint.breakTorque;
                 joint.breakForce -= 5000;
                 joint.breakTorque -= 5000;
+            }
+
+            Rigidbody rb = other.attachedRigidbody;
+            if (rb != null)
+            {
+                rb.isKinematic = false;
             }
 
 
